@@ -12,35 +12,34 @@
         </div>
     	<span id="response" class="widget-title"><?php _e('添加新评论'); ?></span>
     	<form method="post" action="<?php $this->commentUrl() ?>" id="comment-form">
-			<div class="col1">
-			<p>
-                <textarea rows="8" cols="50" name="text" class="textarea"><?php $this->remember('text'); ?></textarea>
-            </p>
-			</div>
-			<div class="col2">
             <?php if($this->user->hasLogin()): ?>
     		<p><?php _e('登录身份：'); ?><a href="<?php $this->options->profileUrl(); ?>"><?php $this->user->screenName(); ?></a>. <a href="<?php $this->options->logoutUrl(); ?>" title="Logout"><?php _e('退出'); ?> &raquo;</a></p>
             <?php else: ?>
     		<p>
-                <label for="author" class="required"><?php _e('称呼'); ?></label>
-    			<input type="text" name="author" id="author" class="text" value="<?php $this->remember('author'); ?>" />
+    			<input type="text" name="author" id="author" class="text" placeholder="<?php _e('Name'); ?>" value="<?php $this->remember('author'); ?>" />
+                <label for="author"><?php _e('称呼'); ?><span class="required">*</span></label>
     		</p>
     		<p>
-                <label for="mail"<?php if ($this->options->commentsRequireMail): ?> class="required"<?php endif; ?>><?php _e('邮箱'); ?></label>
-    			<input type="email" name="mail" id="mail" class="text" value="<?php $this->remember('mail'); ?>" />
+    			<input type="email" name="mail" id="mail" class="text" placeholder="<?php _e('Email'); ?>" value="<?php $this->remember('mail'); ?>" />
+				<label for="mail"><?php _e('邮箱'); ?><?php if ($this->options->commentsRequireMail): ?><span class="required">*</span><?php endif; ?></label>
     		</p>
     		<p>
-                <label for="url"<?php if ($this->options->commentsRequireURL): ?> class="required"<?php endif; ?>><?php _e('网站'); ?></label>
-    			<input type="url" name="url" id="url" class="text" placeholder="<?php _e('http://example.com'); ?>" value="<?php $this->remember('url'); ?>" />
+    			<input type="url" name="url" id="url" class="text" placeholder="<?php _e('BlogSite'); ?>" value="<?php $this->remember('url'); ?>" />
+				<label for="url"><?php _e('站点'); ?><?php if ($this->options->commentsRequireURL): ?><span class="required">*</span><?php endif; ?></label>
+    		</p>
+			<p>
+				<?php SecCode_Plugin::output(); ?>
     		</p>
             <?php endif; ?>
-    		<p>
-                <button type="submit" class="submit"><?php _e('提交评论'); ?></button>
+			<p>
+                <textarea rows="8" cols="50" name="text" class="textarea" placeholder="Comment with Markdown" required><?php $this->remember('text'); ?></textarea>
             </p>
-			</div>
+			<p>
+                <button type="submit" class="button submit"><?php _e('提交评论'); ?></button>
+            </p>
 			<div class="clear"></div>
     	</form>
-    </div>
+	</div>
     <?php else: ?>
     <?php endif; ?>
 </div>

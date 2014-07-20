@@ -4,6 +4,7 @@
     * @package custom   
     */    
 $this->need('header.php');?>   
+
 <div class="col-8" id="main">
 	<div class="res-cons">
             <article class="post">
@@ -14,15 +15,15 @@ $this->need('header.php');?>
             while($archives->next()):   
             $year_tmp = date('Y',$archives->created);   
              $mon_tmp = date('m',$archives->created);   
-             //var_dump($year_tmp);   
+             // var_dump($year_tmp);   
              $y=$year; $m=$mon;   
              if ($mon != $mon_tmp && $mon > 0) $output .= '</ul></li>';   
              if ($year != $year_tmp && $year > 0) $output .= '</ul>';   
              if ($year != $year_tmp) {   
                  $year = $year_tmp;   
-                 $output .= '<div class="al_year">'. $year .' 年</div><ul class="al_mon_list">'; //输出年份   
+                 $output .= '<div class="al_year">'. $year .' 年</div><ul class="al_mon_list">'; // 输出年份   
              }   
-             $output .= '<li>'.date('m/d',$archives->created).'<a href="'.$archives->permalink .'">'. $archives->title .'</a></li>'; //输出文章日期和标题   
+             $output .= '<li>'.date('m/d',$archives->created).'<a href="'.$archives->permalink .'">'. $archives->title .'</a></li>'; // 输出文章日期和标题   
         endwhile;   
         $output .= '</ul></li></ul></div>';   
         echo $output;   
@@ -31,4 +32,6 @@ $this->need('header.php');?>
     		</article>
 	</div>
 </div>
+
+<?php $this->need('sidebar.php'); ?>
 <?php $this->need('footer.php'); ?>

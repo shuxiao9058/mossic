@@ -2,9 +2,20 @@
 	<section class="widget">
         <form id="search" method="post" action="./">
             <input type="text" name="s" class="text" placeholder="搜索..." />
-            <button type="submit" class="submit icon-search">搜索</button>
+            <button type="submit" class="submit icon-search"></button>
         </form>
     </section>
+
+	<?php if (!empty($this->options->sidebarBlock) && in_array('ShowTagClouds', $this->options->sidebarBlock)): ?>
+    <section class="widget">
+		<h3 class="widget-title"><?php _e('标签云'); ?></h3>
+        <p class="tags">
+            <?php $this->widget('Widget_Metas_Tag_Cloud', array('sort' => 'count', 'ignoreZeroCount' => true, 'desc' => true, 'limit' => 20))->to($tags); ?>
+            <?php while($tags->next()): ?>
+                <a style="color: rgb(<?php echo(rand(0, 255)); ?>, <?php echo(rand(0,255)); ?>, <?php echo(rand(0, 255)); ?>)" href="<?php $tags->permalink(); ?>" title='<?php $tags->name(); ?>'><?php $tags->name(); ?></a>
+            <?php endwhile; ?>
+    </section>
+    <?php endif; ?>
 
 	<?php if (!empty($this->options->sidebarBlock) && in_array('ShowRecentPosts', $this->options->sidebarBlock)): ?>
     <section class="widget">
@@ -47,7 +58,16 @@
         </ul>
 	</section>
     <?php endif; ?>
-
+    
+	<?php if (!empty($this->options->sidebarBlock) && in_array('ShowLinks', $this->options->sidebarBlock)): ?>
+    <section class="widget">
+		<h3 class="widget-title"><?php _e('友情链接'); ?></h3>
+        <ul class="widget-list">
+            <?php Links_Plugin::output(); ?>
+        </ul>
+	</section>
+    <?php endif; ?>
+	
     <?php if (!empty($this->options->sidebarBlock) && in_array('ShowOther', $this->options->sidebarBlock)): ?>
 	<section class="widget">
 		<h3 class="widget-title"><?php _e('其它'); ?></h3>
