@@ -27,9 +27,6 @@
     			<input type="url" name="url" id="url" class="text" placeholder="<?php _e('BlogSite'); ?>" value="<?php $this->remember('url'); ?>" />
 				<label for="url"><?php _e('站点'); ?><?php if ($this->options->commentsRequireURL): ?><span class="required">*</span><?php endif; ?></label>
     		</p>
-			<p>
-				<?php SecCode_Plugin::output(); ?>
-    		</p>
             <?php endif; ?>
 			<p>
                 <textarea rows="8" cols="50" name="text" class="textarea" placeholder="Comment with Markdown" required><?php $this->remember('text'); ?></textarea>

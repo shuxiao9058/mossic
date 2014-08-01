@@ -2,7 +2,7 @@
 	<section class="widget">
         <form id="search" method="post" action="./">
             <input type="text" name="s" class="text" placeholder="搜索..." />
-            <button type="submit" class="submit icon-search"></button>
+            <button type="submit" class="submit icon-search">搜索</button>
         </form>
     </section>
 
@@ -12,7 +12,7 @@
         <p class="tags">
             <?php $this->widget('Widget_Metas_Tag_Cloud', array('sort' => 'count', 'ignoreZeroCount' => true, 'desc' => true, 'limit' => 20))->to($tags); ?>
             <?php while($tags->next()): ?>
-                <a style="color: rgb(<?php echo(rand(0, 255)); ?>, <?php echo(rand(0,255)); ?>, <?php echo(rand(0, 255)); ?>)" href="<?php $tags->permalink(); ?>" title='<?php $tags->name(); ?>'><?php $tags->name(); ?></a>
+                <a href="<?php $tags->permalink(); ?>" title='<?php $tags->name(); ?>'><?php $tags->name(); ?></a>
             <?php endwhile; ?>
     </section>
     <?php endif; ?>
