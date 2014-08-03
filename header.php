@@ -5,15 +5,18 @@
 <!--[if gt IE 8]><!-->
 <html class="no-js">
 <!--<![endif]-->
+
+<a rel="nofollow" target="_blank" href="https://github.com/shuxiao9058">
+    <img style="position: absolute; top: 0; right: 0; border: 0;" 
+        src= "<?php $this->options->themeUrl('img/forkme_right_gray_6d6d6d.png'); ?>" alt="Fork me on GitHub" 
+        data-canonical-src="<?php $this->options->themeUrl('img/forkme_right_gray_6d6d6d.png'); ?>" >
+</a>
+
 <head>
 
-<?php 
-/*
 <script type="text/javascript" charset="UTF-8"
-	src="http://lurongkai.github.io/anti-baidu/js/anti-baidu-latest.min.js"></script>
-*/
-?>
-	
+	src="http://lurongkai.github.io/anti-baidu/js/anti-baidu-latest.js"></script>
+
 <?php
 /*
 	MathJax allows you to include mathematics in your web pages, either using LaTeX,
@@ -120,7 +123,6 @@
     
 </head>
 <body>
-
 	<header id="header" class="clearfix">
 		<div class="container">
 			<div class="col-group">
@@ -134,10 +136,10 @@
                 <?php else:?>
                     <a id="logo"
 						href="<?php $this->options->siteUrl(); ?>">
-                        <?php $this->options->title() ?>
+                        <?php $this->options->title() ?>                        
                     </a>
                 <?php endif; ?>
-        	    <p class="description"><?php $this->options->description() ?></p>
+                <p class="description"><?php $this->options->description() ?></p>
 				</div>
 				<div>
 					<nav id="nav-menu" class="clearfix">

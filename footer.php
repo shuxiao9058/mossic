@@ -4,7 +4,7 @@
 <footer id="footer">
 	<div class="container">
 		&copy; <?php echo date('Y'); ?> <a rel="nofollow" href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a>. 
-		<a rel="nofollow" target="_blank" href="<?php $this->options->siteUrl(); _e('sitemap.xml'); ?>">谷歌地图</a>.
+		<a rel="nofollow" target="_blank" href="/sitemap.xml">谷歌地图</a>.
 		<a><?php echo '加载耗时：',timer_stop(), 's';?></a>
 		
 		<span style="display:none">

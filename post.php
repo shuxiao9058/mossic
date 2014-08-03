@@ -5,14 +5,11 @@
 			<header>
 				<h1 class="post-title"><?php $this->title() ?></h1>
 			</header>
-			<p class="post-meta">
-				<i class="icon-user"></i>
-				<span itemprop="author" itemscope itemtype="http://schema.org/Person"><a itemprop="name" href="<?php $this->author->permalink(); ?>" rel="author"><?php $this->author('screenName'); ?></a></span>
-			    <i class="icon-calendar"></i>
-            	<span><time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><?php $this->date("M jS, Y"); ?></time></span>
-				<i class="icon-category"></i>
-            	<a><?php $this->category(','); ?></a>
-            </p>
+			<ul class="post-meta">
+				<li class="icon-user" itemprop="author" itemscope itemtype="http://schema.org/Person">&nbsp;<a itemprop="name" href="<?php $this->author->permalink(); ?>" rel="author"><?php $this->author('screenName'); ?></a></li>
+            	<li class="icon-calendar">&nbsp;<time datetime="<?php $this->date('c'); ?>" itemprop="datePublished"><?php $this->date("M jS, Y"); ?></time></li>
+            	<li class="icon-category">&nbsp;<?php $this->category(','); ?></li>
+            </ul>
 			<div class="post-content">
 				<?php $this->content(); ?>
 				<br/>

@@ -27,6 +27,13 @@
     			<input type="url" name="url" id="url" class="text" placeholder="<?php _e('BlogSite'); ?>" value="<?php $this->remember('url'); ?>" />
 				<label for="url"><?php _e('站点'); ?><?php if ($this->options->commentsRequireURL): ?><span class="required">*</span><?php endif; ?></label>
     		</p>
+    		<?php ?>
+			<p>
+				<?php SecCode_Plugin::output(); ?>
+				<?php 
+				/* <label for="captcha"><?php _e('验证码'); ?><span class="required">*</span></label> */
+				?>
+            </p>
             <?php endif; ?>
 			<p>
                 <textarea rows="8" cols="50" name="text" class="textarea" placeholder="Comment with Markdown" required><?php $this->remember('text'); ?></textarea>
